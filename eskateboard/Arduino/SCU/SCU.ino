@@ -23,8 +23,13 @@ void setup(){
  pinMode(PWM_pin, OUTPUT);   // sets the pin as output
 
  //CHANGES for v1.6 HERE!!! **************PAY ATTENTION*************
-  
+
+ // Nano (miso, mosi, ss, sck)
  error = ps2x.config_gamepad(12,11,10,13, true, true);   //setup pins and settings:  GamePad(clock, command, attention, data, Pressures?, Rumble?) check for error
+
+ // ESP32
+ error = ps2x.config_gamepad(19,23,5,18, true, true); 
+ 
  
  if(error == 0){
    Serial.println("Found Controller, configured successful");
